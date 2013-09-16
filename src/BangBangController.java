@@ -34,18 +34,18 @@ public class BangBangController implements UltrasonicController{
 		// TODO: process a movement based on the us distance passed in (BANG-BANG style)
 		int error = distance-DESIRED_DISTANCE;
 		
-		if(Math.abs(error)<=DEADBAND){
+		if(Math.abs(error)<=DEADBAND){ //If the error is small enough, do nothing
 			rightMotor.setSpeed(motorStraight);
 			leftMotor.setSpeed(motorStraight);
 			rightMotor.forward();
 			leftMotor.forward();
 		}
-		else if(error<0){ //RIGHT
+		else if(error<0){ //If the robot is too close, STOP, then turn right
 			rightMotor.setSpeed(ZERO);
 			leftMotor.setSpeed(motorStraight+DELTA);
 			leftMotor.forward();
 		}
-		else{ //LEFT
+		else{ //If the robot is too far, turn left
 			rightMotor.setSpeed(motorStraight+DELTA);
 			leftMotor.setSpeed(motorStraight-DELTA);
 			rightMotor.forward();
