@@ -25,6 +25,7 @@ public class BangBangController implements UltrasonicController{
 		leftMotor.forward();
 		rightMotor.forward();
 		currentLeftSpeed = 0;
+		//Run the next line once every time you start working
 		//Motor.B.rotateTo(SENSOR_ANGLE);
 	}
 	
